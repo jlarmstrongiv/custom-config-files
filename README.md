@@ -33,7 +33,7 @@ https://github.com/documentationjs/documentation#documentation
 
 ## Usage
 
-Documentation website [coming soon](http://jlarmstrongiv.github.io/custom-config-files)! <!-- https://github.com/documentationjs/documentation#documentation -->
+Documentation website [coming soon](http://jlarmstrongiv.github.io/custom-config-files/)! <!-- https://github.com/documentationjs/documentation#documentation -->
 
 ### Initialize
 
@@ -105,4 +105,4 @@ config.removeGlobalDir();
 ```
 
 ### Low Level API
-Documentation website [coming soon](http://jlarmstrongiv.github.io/custom-config-files).  See comments in files under `./src/utils`.
+Documentation website [coming soon](http://jlarmstrongiv.github.io/custom-config-files/).  See comments in files under `./src/utils`.
