@@ -90,10 +90,10 @@ config.outputGlobal(extensions);
 
 #### Read Files
 ```jsx
-// find most recent local config file
+// finds most recent local config file
 config.readLocal(extensions);
 
-// find most recent global config file
+// finds most recent global config file
 config.readGlobal(extensions);
 
 // combination, checks local then global
