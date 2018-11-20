@@ -6,6 +6,12 @@ https://github.com/streamich/memfs
 
 Build a documentation website
 https://github.com/documentationjs/documentation#documentation
+
+Set up code quality and CI Testing badges, rather than manual checking
+
+Add (static) methods to the Config class to compare and merge multiple configs, similar to https://github.com/rt2zz/redux-persist#state-reconciler as well as incoming settings
+
+Add read and write cson
 -->
 
 # custom-config-files
@@ -44,7 +50,7 @@ const Config = require('custom-config-files').default;
 // setup instance
 const config = new Config({
   rootName: 'myconfigrc',
-  globalDir: '~/dotfiles/config',
+  globalDir: '~/dotfiles/config/myconfig',
   localDir: './current-working-directory', // optional, defaults to process.cwd()
 })
 
@@ -101,6 +107,7 @@ config.removeLocal(extensions);
 config.removeGlobal(extensions);
 
 // Removes the entire global config folder
+// Only use if you have a folder for your global configs
 config.removeGlobalDir();
 ```
 
