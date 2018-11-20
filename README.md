@@ -9,6 +9,8 @@ https://github.com/documentationjs/documentation#documentation
 
 Set up code quality and CI Testing badges, rather than manual checking
 
+Find sensible linux and windows defaults for globalDir
+
 Add (static) methods to the Config class to compare and merge multiple configs, similar to https://github.com/rt2zz/redux-persist#state-reconciler as well as incoming settings
 
 Add read and write cson
@@ -49,9 +51,9 @@ const Config = require('custom-config-files').default;
 
 // setup instance
 const config = new Config({
-  rootName: 'myconfigrc',
-  globalDir: '~/dotfiles/config/myconfig',
-  localDir: './current-working-directory', // optional, defaults to process.cwd()
+  rootName: 'myconfigrc', // required, file patterns .myconfigrc.json
+  globalDir: '~/.config/myconfig', // required, see https://github.com/kirsle/configdir
+  localDir: `${process.cwd()}/myconfig`, // optional, defaults to process.cwd()
 })
 
 // edit instance variables
@@ -69,27 +71,29 @@ const fileTypes = require('custom-config-files').fileTypes;
 // extensions are optional, and are used to
 // specify output or filter input
 
-let extensions; // Defaults to all if null
-const extensions = fileTypes.json;
-const extensions = [fileTypes.json, fileTypes.js, fileTypes.env, fileTypes.yml,];
+let extensions;
+// defaults to fileTypes.json for `output` method
+extensions = fileTypes.json;
+// defaults to all available fileTypes for `read` and `remove` methods
+extensions = [fileTypes.json, fileTypes.js, fileTypes.env, fileTypes.yml,];
 ```
 
 #### Output Files
 
 ```jsx
-// outputs config to local dir
+// outputs config file to local dir
 config.outputLocal(extensions);
 
-// outputs config to global dir
+// outputs config file to global dir
 config.outputGlobal(extensions);
 ```
 
 #### Read Files
 ```jsx
-// find most recent local file
+// find most recent local config file
 config.readLocal(extensions);
 
-// find most recent global file
+// find most recent global config file
 config.readGlobal(extensions);
 
 // combination, checks local then global
@@ -100,14 +104,14 @@ config.read(extensions);
 
 #### Remove Files
 ```jsx
-// Removes a local config file
+// removes a local config file
 config.removeLocal(extensions);
 
-// Removes a global config file
+// removes a global config file
 config.removeGlobal(extensions);
 
-// Removes the entire global config folder
-// Only use if you have a folder for your global configs
+// removes the entire global config folder
+// only use if you have a custom folder for your global configs
 config.removeGlobalDir();
 ```
 
