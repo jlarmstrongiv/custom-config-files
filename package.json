@@ -1,6 +1,6 @@
 {
   "name": "custom-config-files",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Output, read, and remove both local and global configs from .json, .js, .env, and .yml files with Node.js",
   "main": "./src/index.js",
   "repository": "git@github.com:jlarmstrongiv/custom-config-files.git",
